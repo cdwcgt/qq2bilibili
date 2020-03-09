@@ -17,7 +17,7 @@ if folder == False:
     os.makedirs("./imgs")
 
 # 验证类
-verify = Verify(sessdata="", csrf="")
+verify = Verify(sessdata="", csrf="4dc73")
 
 # 上传图片路径列表
 img_path = []
@@ -133,6 +133,7 @@ def handle_msg(event):
             return
         # print(message)
         if suo3 == True:
+            print(temp3)
             if message != "ok":
                 bot.send(mubiao, '已停止发送动态')
                 suo1 = False
@@ -153,7 +154,7 @@ def handle_msg(event):
                 print('发送文字')
                 text = TextDynamic(text=temp3, verify=verify)
                 instant = InstantDynamic(text)
-            # print(instant.send())
+            print(instant.send())
             bot.send(mubiao, '发送动态成功')
             print('发送动态成功')
             suo1 = True

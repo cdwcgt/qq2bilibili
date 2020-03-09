@@ -1,4 +1,5 @@
 # bilibiliqq
+***目前还有图片文字拆分问题，请不要使用图文发送!!!***
 此项目用于在qq中发送bilibili动态
 使用了requests和[cqhttp](https://github.com/cqmoe/python-cqhttp)第三方库，使用前请配置环境
 ```sh
