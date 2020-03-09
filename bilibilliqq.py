@@ -146,13 +146,13 @@ def handle_msg(event):
             if temp4 > 0:
                 print('发送图文')
                 # 上传图片类
-                #upload = UploadImages(images_path=img_path, verify=verify)
-                #draw = DrawDynamic(text=temp3,upload_images=upload,verify=verify)
-                #instant = InstantDynamic(draw)
+                upload = UploadImages(images_path=img_path, verify=verify)
+                draw = DrawDynamic(text=temp3,upload_images=upload,verify=verify)
+                instant = InstantDynamic(draw)
             elif temp4 == 0:
                 print('发送文字')
-                #text = TextDynamic(text=temp3, verify=verify)
-                #instant = InstantDynamic(text)
+                text = TextDynamic(text=temp3, verify=verify)
+                instant = InstantDynamic(text)
             # print(instant.send())
             bot.send(mubiao, '发送动态成功')
             print('发送动态成功')
