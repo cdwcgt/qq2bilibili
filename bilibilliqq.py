@@ -111,7 +111,7 @@ def findtext(string):  # 提取文本
         return string
     i = 0
     str_end = ""
-    for i in string.split("[CQ"):
+    for i in string.split("[CQ:image"):
         print(i)
         if i.find(']')>=0:
             str_end=str_end+i[i.find(']')+1:]
