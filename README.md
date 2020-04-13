@@ -55,7 +55,7 @@ verify = Verify(sessdata="填写获取到的sessdata", csrf="填写获取到的c
     "ws_reverse_reconnect_interval": 3000,
     "ws_reverse_reconnect_on_code_1000": true,
     "use_ws_reverse": false,
-    "post_url": "http://127.0.0.1:8080",
+    "post_url": "http://127.0.0.1:8887",
     "access_token": "",
     "secret": "",
     "post_message_format": "string",
