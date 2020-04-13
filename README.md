@@ -39,7 +39,7 @@ verify = Verify(sessdata="填写获取到的sessdata", csrf="填写获取到的c
 
 # 修改http插件配置
 在httpapi插件目录中找到配置文件(一般为"config/机器人qq号.json")
-将 "post_url"改为"http://127.0.0.1:8080"
+将 "post_url"改为"http://127.0.0.1:8887"
 以下是我的配置，若无特殊需要可以直接复制(使用此配置时无需修改[bilibiliqq.py中的"access_token"与"secret"](https://github.com/cdwcgt/bilibiliqq/blob/master/README.md#httpapi修改))
 ```sh
 {

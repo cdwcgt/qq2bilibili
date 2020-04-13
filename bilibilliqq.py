@@ -1,4 +1,5 @@
 # -*-coding:utf-8 -*-
+import json
 import re
 import os
 import socket
@@ -17,7 +18,7 @@ if folder == False:
     os.makedirs("./imgs")
 
 # 验证类
-verify = Verify(sessdata="", csrf="4dc73")
+verify = Verify(sessdata="", csrf="")
 
 # 上传图片路径列表
 img_path = []
@@ -89,7 +90,7 @@ def downloadpic(shuzu):  # 下载图片
                     print(err_info)
                     count += 1
             if count > 3:
-                print("downloading picture fialed!")
+                print("图片下载失败")
                 return -1
         #print(urllib2.urlretrieve(shuzu[i], "./imgs/"+str(i)+".jpg"))
         img_path.append("./imgs/"+str(i)+".jpg")
@@ -104,17 +105,19 @@ https://blog.csdn.net/jclian91/article/details/77513289
 
 
 def findtext(string):  # 提取文本
-    if string.startswith("[CQ:image,") == False:
+    if string.find("[CQ:image,") == -1:
+        print("未检测到图片链接")
+        bot.send(mubiao, '未检测到图片链接')
         return string
     i = 0
-    temp6 = ""
-    temp5 = string.split("[CQ:image,")
-    while i < len(temp5):
-        if temp5[i].find("]") != -1:
-            temp5[i] = temp5[i].split("]")[1]
-            temp6 += temp5[i]
-        i = i+1
-    return temp6
+    str_end = ""
+    for i in string.split("[CQ"):
+        print(i)
+        if i.find(']')>=0:
+            str_end=str_end+i[i.find(']')+1:]
+        else :
+            str_end=str_end+i
+    return str_end
 
 
 @bot.on_message
@@ -227,7 +230,7 @@ if __name__ == '__main__':
     except Exception as err:  # FileExistsError or OSError:
         print(str(err))
     '''
-    bot.run(host='127.0.0.1', port=8080)
+    bot.run(host='127.0.0.1', port=8887)
 
 #未严格测试！！！！！！！！！！！！！！！！！！！！！！！
 
